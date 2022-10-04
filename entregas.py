@@ -62,6 +62,14 @@ def cadastrar_entrega():
     e_status.delete(0, 'end')
     e_feedback_detalhado.delete(0, 'end')
 
+def verificar_cpf():
+    banco = sqlite3.connect("Banco-de-Dados.db")
+    cursor = banco.cursor()
+    cursor.execute("SELECT * FROM Entregas WHERE CPF_Motorista = '803.008.379-33'")
+    for linha in cursor.fetchall():
+        print(f'{linha}')
+
+
 
 janela = tk.Tk()
 janela.title("Cadastrar Entrega")
