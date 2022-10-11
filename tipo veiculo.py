@@ -6,13 +6,21 @@ banco = sqlite3.connect("Banco-de-Dados.db")
 
 cursor = banco.cursor()
 
-cursor.execute("CREATE TABLE IF NOT EXISTS veículo("
+cursor.execute("CREATE TABLE Cadastro_Veículo("
                "id INTEGER PRIMARY KEY AUTOINCREMENT,"
                "Placa text,"
                "Marca text,"
                "Cor text,"
                "Ano_do_Veículo text,"
-               "Vencimento_do_Documento text)")
+               "Renavam text,"
+               "Tipo_Carroceria text,"
+               "Altura text,"
+               "Largura text,"
+               "Comprimento text,"
+               "Tara_KG text,"
+               "Capacidade em KG text,"
+               "Vencimento_do_Documento text"
+               "Feedback_do_Veículo)")
 
 banco.commit()
 
@@ -24,7 +32,7 @@ def cadastrar_veiculo():
     banco = sqlite3.connect("Banco-de-Dados.db")
     cursor = banco.cursor()
 
-    cursor.execute("INSERT INTO veículo VALUES(:id,:placa,:marca,:cor,:AnoVeiculo,:vencimento)",
+    cursor.execute("INSERT INTO Cadastro_Veículo VALUES(:id,:placa,:marca,:cor,:AnoVeiculo,:vencimento)",
                    {
                        'id':None,
                        'placa':e_placa.get(),
